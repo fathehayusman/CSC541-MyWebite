@@ -1,0 +1,28 @@
+        body {
+            font-family: Comic Sans MS, sans-serif;
+            background-color: #2c1443; /* Dark purple background color */
+            color: #fff; /* White text color */
+            margin: 0;
+            padding: 20px;
+            background-size: 80px; /* Adjust size of sprinkle pattern */
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        header {
+            background-image: url('cuteBg3.png'); /* Path to frame image */
+            background-size: 90%; /* Cover the whole header */
+            background-position: 50% 50%; /* Background image position */
+            background-repeat: no-repeat; /* Do not repeat background image */
+            background-color: #4a236a; /* Darker purple header background color */
+            color: #fff;
+            padding: 100px;
+            text-align: center;
+            position: relative;
+            max-width: 1100px; /* Set maximum width for header */
+            margin: 0 auto; /* Center header */
+        }

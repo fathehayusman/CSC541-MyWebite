@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="welcomeStyle.css">
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="myPhoto.jpg" alt="My Photo" class="profile-photo">
+            <h1>Welcome To My Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" id="loginBtn">Login</a></li>
+                </ul>
+            </nav>
+            <!-- Modal -->
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <form id="loginForm" onsubmit="return login()">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password">
+                        <button type="submit">Login</button>
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <p id="loginMessage" class="login-message"></p>
+                    </form>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <script>
+        // Function to show the login modal
+        function openModal() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        // Function to close the login modal
+        function closeModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        // Hardcoded username and password
+        var validUsername = "fy";
+        var validPassword = "123";
+
+        // Function to handle login
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var loginMessage = document.getElementById('loginMessage');
+
+            // Check if the entered username and password match the hardcoded values
+            if (username === validUsername && password === validPassword) {
+                document.getElementById('loginBtn').style.display = 'none';
+                closeModal();
+                loginMessage.textContent = 'Login successful!';
+                setTimeout(function() {
+                    loginMessage.textContent = ''; // Clear the message after a short delay
+                }, 2000); // Message disappears after 2 seconds
+                window.location.href = 'index.html'; // Redirect to index.html upon successful login
+                return false; // Prevent form submission
+            } else {
+                loginMessage.textContent = 'Invalid username or password!';
+                return false; // Prevent form submission
+            }
+        }
+
+        // Event listener for login button
+        document.getElementById("loginBtn").addEventListener("click", openModal);
+
+        // Event listener for close button in modal
+        document.querySelector(".close").addEventListener("click", closeModal);
+    </script>
+</body>
+</html>
